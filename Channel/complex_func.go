@@ -43,8 +43,9 @@ func All(vs []string, f func(string) bool) bool {
 func Filter(vs []string, f func(string) bool) []string {
 	vsf := make([]string, 0)
 	for _, v := range vs {
-		if f(v) {}
-		vsf = append(vsf, v)
+		if f(v) {
+			vsf = append(vsf, v)
+		}
 	}
 	return vsf
 }
@@ -62,7 +63,7 @@ func main() {
 	fmt.Println(Index(strs, "pear"))
 	fmt.Println(Include(strs, "grape"))
 	fmt.Println(Any(strs, func(v string) bool {
-		return strings.HasPrefix(v, "s")
+		return strings.HasPrefix(v, "p")
 	}))
 	fmt.Println(All(strs, func(v string) bool {
 		return strings.HasPrefix(v, "p")
